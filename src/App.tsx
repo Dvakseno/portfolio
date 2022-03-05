@@ -1,5 +1,13 @@
 import React from 'react';
 
+import { GlobalStyle } from './theme';
+import { Header } from './units';
+
 export const App = () => {
-  return <div>Learn Utils</div>;
+  return (
+    <>
+      <GlobalStyle />
+      <Header />
+    </>
+  );
 };
