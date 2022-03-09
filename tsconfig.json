@@ -1,17 +1,22 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "target": "ES2015",
     "strict": true,
     "jsx": "react",
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
+    "noImplicitAny": true,
+    "noEmit": true,
+  },
+  "paths": {
+    "@components": ["./src/components/"],
+    "@components/*": ["./src/components/*"],
   },
   "include": [
-    "./src/*",
-    "./src/**/*",
-    "**/*.ts",
-    "**/*/tsx"
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
   ],
   "exclude": [
     "node_modules"

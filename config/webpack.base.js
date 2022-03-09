@@ -8,6 +8,10 @@ dotenv.config();
 const getPath = (...p) => path.resolve(process.cwd(), ...p);
 const STATIC_PATH = process.env.STATIC_PATH || '/';
 
+const alias = {
+  '@components': getPath('src/components'),
+};
+
 const HtmlWebpackPluginWithConfig = new HtmlWebpackPlugin({
   template: getPath('config', 'html-template.ejs'),
   filename: 'index.html',
@@ -28,6 +32,7 @@ module.exports = {
 
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    alias,
   },
 
   devtool: 'source-map',
@@ -40,7 +45,11 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react'],
+            presets: [
+              '@babel/preset-env',
+              '@babel/preset-react',
+              '@babel/preset-typescript',
+            ],
           },
         },
       },

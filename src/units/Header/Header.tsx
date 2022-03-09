@@ -1,7 +1,19 @@
 import React from 'react';
 
-import { Wrapper } from './styled';
+import { Container } from '../../components';
+import { Smile } from '../../icons';
+
+import { Wrapper, Title } from './styled';
 
 export const Header = () => {
-  return <Wrapper>Dmitriy Aksenov</Wrapper>;
+  return (
+    <Wrapper>
+      <Container>
+        <Title>Dmitriy Aksenov</Title>
+        <button>
+          <Smile />
+        </button>
+      </Container>
+    </Wrapper>
+  );
 };
