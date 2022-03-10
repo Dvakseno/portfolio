@@ -1,19 +1,26 @@
 import React from 'react';
+import { useRecoilState } from 'recoil';
 
-import { Container } from '../../components';
-import { Smile } from '../../icons';
+import { activeTheme } from '../../store/active-theme';
+import { Toggler } from '../../components';
 
-import { Wrapper, Title } from './styled';
+import { Wrapper, Title, Introduction, CustomContainer } from './styled';
 
 export const Header = () => {
+  const [active, setActive] = useRecoilState(activeTheme);
+  const changeTheme = () => setActive(prevState => (prevState === 'normal' ? 'reverse' : 'normal'));
   return (
     <Wrapper>
-      <Container>
-        <Title>Dmitriy Aksenov</Title>
-        <button>
-          <Smile />
-        </button>
-      </Container>
+      <CustomContainer>
+        <Introduction>
+          <span>
+            <strong>Hello</strong>, I am
+          </span>
+          <Title>Dmitriy Aksenov</Title>
+          <span>React developer</span>
+        </Introduction>
+        <Toggler />
+      </CustomContainer>
     </Wrapper>
   );
 };
